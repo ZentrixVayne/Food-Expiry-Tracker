@@ -1,0 +1,211 @@
+/* Reset & Theme */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f9f9f9, #e0f7fa);
+  color: #333;
+  padding: 20px;
+  transition: background 0.5s, color 0.5s;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #121212, #1a1a1a);
+  color: #f4f4f4;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+/* Main Title */
+.main-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #00796b;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+/* Dark Mode Button */
+#darkToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #00796b;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  z-index: 100;
+  transition: 0.4s;
+}
+#darkToggle:hover {
+  transform: scale(1.05);
+}
+body.dark #darkToggle {
+  background: #f4f4f4;
+  color: #121212;
+}
+
+/* Dashboard Summary */
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 25px 0;
+  gap: 15px;
+}
+.card {
+  flex: 1;
+  min-width: 160px;
+  padding: 20px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-weight: 600;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+body.dark .card {
+  background: #1e1e1e;
+}
+
+/* Form */
+form {
+  margin: 25px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+input, button {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+input:focus {
+  outline: none;
+  box-shadow: 0 0 8px #00796b;
+}
+button.add-btn {
+  background: #00796b;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+button.add-btn:hover {
+  background: #004d40;
+  transform: scale(1.05);
+}
+
+/* Item List */
+#itemList {
+  list-style: none;
+  margin-top: 25px;
+}
+#itemList li {
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+#itemList li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+body.dark #itemList li {
+  background: #1e1e1e;
+}
+.expired { background: #ffebee !important; color: #c62828; }
+.soon { background: #fff8e1 !important; color: #f57f17; }
+#itemList button {
+  margin-left: 10px;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+#itemList button:hover {
+  transform: scale(1.1);
+}
+
+/* Suggestions Panel */
+#suggestionsPanel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+#suggestionsPanel.show {
+  opacity: 1;
+  pointer-events: all;
+}
+.panel-content {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 20px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  font-weight: 500;
+  transition: transform 0.4s;
+}
+body.dark .panel-content {
+  background: #1e1e1e;
+  color: #fff;
+}
+#suggestionsPanel.show .panel-content {
+  transform: translateY(0);
+}
+.panel-content h2 {
+  margin-bottom: 20px;
+  color: #00796b;
+}
+.close-btn {
+  margin-top: 20px;
+  background: #c62828;
+  color: white;
+}
+.close-btn:hover {
+  background: #8e0000;
+  transform: scale(1.05);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .summary { flex-direction: column; gap: 12px; }
+  #itemList li { flex-direction: column; align-items: flex-start; font-size: 14px; }
+  form { flex-direction: column; gap: 10px; }
+}

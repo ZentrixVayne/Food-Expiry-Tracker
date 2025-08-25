@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🥗 Food Expiry Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Dark Mode Toggle -->
+  <button id="darkToggle">🌙 Dark Mode</button>
+
+  <div class="container">
+    <h1 class="main-title">🥗 Food Expiry Tracker</h1>
+
+    <!-- Dashboard Summary -->
+    <div class="summary">
+      <div class="card" id="totalItems">Total Items: 0</div>
+      <div class="card" id="expiringSoon">Expiring Soon: 0</div>
+      <div class="card" id="expired">Expired: 0</div>
+      <div class="card" id="safeItems">Safe Items: 0</div>
+    </div>
+
+    <!-- Input Form -->
+    <form id="itemForm">
+      <input type="text" id="itemName" placeholder="Enter food name" required>
+      <input type="date" id="expiryDate" required>
+      <button type="submit" class="add-btn">➕ Add Item</button>
+    </form>
+
+    <!-- Item List -->
+    <ul id="itemList"></ul>
+
+    <!-- Suggestions Panel -->
+    <div id="suggestionsPanel" class="hidden">
+      <div class="panel-content">
+        <h2>🍽 Recipe Suggestions</h2>
+        <p id="suggestionText">No suggestions yet.</p>
+        <button id="closePanel" class="close-btn">❌ Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
