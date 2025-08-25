@@ -19,7 +19,7 @@ body.dark {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   text-align: center;
 }
@@ -66,7 +66,7 @@ body.dark #darkToggle {
 }
 .card {
   flex: 1;
-  min-width: 160px;
+  min-width: 180px;
   padding: 20px;
   border-radius: 16px;
   background: white;
@@ -91,8 +91,8 @@ form {
   justify-content: center;
   align-items: center;
 }
-input, button {
-  padding: 12px;
+input, button.add-btn {
+  padding: 14px;
   border: none;
   border-radius: 12px;
   font-size: 1rem;
@@ -180,14 +180,15 @@ body.dark #itemList li {
   text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
   font-weight: 500;
+  transform: translateY(-50px);
   transition: transform 0.4s;
+}
+#suggestionsPanel.show .panel-content {
+  transform: translateY(0);
 }
 body.dark .panel-content {
   background: #1e1e1e;
   color: #fff;
-}
-#suggestionsPanel.show .panel-content {
-  transform: translateY(0);
 }
 .panel-content h2 {
   margin-bottom: 20px;
@@ -204,8 +205,16 @@ body.dark .panel-content {
 }
 
 /* Mobile */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .summary { flex-direction: column; gap: 12px; }
   #itemList li { flex-direction: column; align-items: flex-start; font-size: 14px; }
-  form { flex-direction: column; gap: 10px; }
+  form { flex-direction: column; gap: 12px; }
+  input, button.add-btn { width: 100%; }
+  .panel-content { width: 90%; padding: 20px; }
+}
+
+/* Desktop hover animation for cards & buttons */
+@media (min-width: 769px) {
+  .card:hover { transform: translateY(-5px); }
+  button.add-btn:hover { transform: scale(1.05); }
 }
